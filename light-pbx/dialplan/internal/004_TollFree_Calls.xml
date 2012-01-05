@@ -1,0 +1,8 @@
+<include>
+  <!--Thanks to SwK, (Aka Ken Rice) you can make your US toll free calls for free via his services at tollfreegateway.com-->
+  <extension name="tollfreegateway">
+    <condition field="destination_number" expression="^1|\+1(800|855|866|877|888)(\d{7})$">
+      <action application="bridge" data="sofia/${use_profile}/1$1$2@sip.tollfreegateway.com" />
+    </condition>
+  </extension>
+</include>

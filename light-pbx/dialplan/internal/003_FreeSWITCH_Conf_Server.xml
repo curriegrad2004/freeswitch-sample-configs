@@ -1,0 +1,9 @@
+<include>
+  <!--Every Wednesdays! Call in!-->
+  <extension name="FreeSWITCH_Conf_Server">
+    <condition field="destination_number" expression="^9(888|8888|1616|3232)$">
+      <action application="export" data="hold_music=silence"/>
+      <action application="bridge" data="sofia/${use_profile}/$1@conference.freeswitch.org" />
+    </condition>
+  </extension>
+</include>

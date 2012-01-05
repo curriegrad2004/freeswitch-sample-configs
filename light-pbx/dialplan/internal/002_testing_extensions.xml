@@ -1,0 +1,23 @@
+<include>
+  <extension name="Echo_Test">
+    <!--This extension literally echos in what you put in. Useful for "relative latency testing"-->
+    <condition field="destination_number" expression="^9196$">
+      <action application="answer" />
+      <action application="echo" />
+    </condition>
+  </extension>
+  <!--Although this extension's name implies that we send a milliwatt of power to your line, we actually "don't". It's just a 1004Hz tone that's being generated on our side.-->
+  <extension name="1mW_Test">
+    <condition field="destination_number" expression="^9197$">
+      <action application="answer" />
+      <action application="playback" data="tone_stream://%(251,0,1004);loops=-1"/>
+    </condition>
+  </extension>
+  <!--If you really want to, just sit tight and listen to the music that's blaring out via mod_local_stream-->
+  <extension name="hold_music">
+    <condition field="destination_number" expression="^9665$">
+      <action application="answer"/>
+      <action application="playback" data="$${hold_music}"/>
+    </condition>
+  </extension>
+</include>

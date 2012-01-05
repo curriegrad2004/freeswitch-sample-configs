@@ -1,0 +1,8 @@
+<include>
+  <!--To route a DID being sent from an external provider, given if it's being registered from the external context we've defined.-->
+  <extension name="IncomingDIDExample">
+    <condition field="destination_number" expression="^5552223333$">
+      <action application="transfer" data="1000 XML internal" />
+    </condition>
+  </extension>
+</include>
