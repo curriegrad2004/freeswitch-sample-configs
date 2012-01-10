@@ -18,13 +18,14 @@
     <load module="mod_commands"/>
     <load module="mod_conference"/>
     <load module="mod_voicemail"/>
+    <load module="mod_hash" />
 
     <!-- Dialplan Interfaces -->
     <load module="mod_dialplan_xml"/>
     <load module="mod_dptools" />
 
     <!-- Codec Interfaces -->
-	<!-- Spandsp includes G722, G726 and GSM -->
+    <!-- Spandsp includes G722, G726 and GSM -->
     <load module="mod_spandsp"/>
     <load module="mod_speex"/>
 

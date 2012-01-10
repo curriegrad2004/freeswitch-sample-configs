@@ -1,0 +1,8 @@
+<include>
+  <extension name="Call_Return">
+    <condition field="destination_number" expression="^\*69$">
+      <action application="answer" />
+      <action application="say" data="en number iterated ${hash(select/call_return/${accountcode})}" />
+    </condition>
+  </extension>
+</include>
