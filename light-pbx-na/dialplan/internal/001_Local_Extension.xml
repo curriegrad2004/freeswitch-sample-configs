@@ -5,6 +5,8 @@
       <action application="set" data="ringback=${us-ring}" />
       <action application="set" data="continue_on_fail=true" />
       <action application="set" data="hangup_after_bridge=true"/>
+      <!--Here we implement Call Return-->
+      <action application="hash" data="insert/call_return/$1/${caller_id_number}"/>
       <!--That sets the timeout to 30 seconds before we go on to Voicemail-->
       <action application="set" data="call_timeout=30"/>
       <action application="bridge" data="user/$1@${domain_name}"/>
