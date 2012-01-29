@@ -75,8 +75,8 @@
 
     <param name="log-auth-failures" value="false"/>
     <param name="forward-unsolicited-mwi-notify" value="false"/>
-
-    <param name="context" value="public"/>
+	<!-- Leave this to external. You SERIOUSLY don't want any unauthenticated SIP calls being sent to your internal dialplan! -->
+    <param name="context" value="external"/>
     <param name="rfc2833-pt" value="101"/>
     <!-- port to bind to for sip traffic -->
     <param name="sip-port" value="$${internal_sip_port}"/>

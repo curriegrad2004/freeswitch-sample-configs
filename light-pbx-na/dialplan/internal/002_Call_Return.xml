@@ -2,7 +2,15 @@
   <extension name="Call_Return">
     <condition field="destination_number" expression="^\*69$">
       <action application="answer" />
+	  <!-- By default, we're going to make this to speak the digits of the last person who called your extension -->
       <action application="say" data="en number iterated ${hash(select/call_return/${accountcode})}" />
+	  <!-- We can also do this: (Uncomment the line below and comment out the line above before you use it!
+	  You may have to do it with the answer action too.-->
+	  <!-- <action applcation="transfer" data="${hash(select/call_return/${accountcode})} XML internal" /> -->
+	  <!-- The example above just takes in your last caller's number and transfers 
+	  it back to the internal context, going through the dialplan regex matching 
+	  process again. Examples of using it is posted on this link:
+	  http://wiki.freeswitch.org/wiki/Misc._Dialplan_Tools_transfer -->
     </condition>
   </extension>
 </include>
