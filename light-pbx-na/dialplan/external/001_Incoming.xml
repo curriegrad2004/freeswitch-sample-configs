@@ -7,9 +7,9 @@
   this matches all calls that are to 1000 through 1019.
   The transfer application sends the call to the matching extension on the internal profile.
   -->
-  <exension name="Local_Extensions">
+  <extension name="Local_Extensions">
     <condition field="destination_number" expression="^(10[0-1][0-9])$">
       <action application="transfer" data="$1 XML internal" />
     </condition>
-  </exension>
+  </extension>
 </include>
