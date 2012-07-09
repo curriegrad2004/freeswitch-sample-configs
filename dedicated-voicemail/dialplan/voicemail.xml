@@ -1,0 +1,38 @@
+<include>
+  <context name="voicemail">
+    
+    <!--Extension where users would normally dial in to access their voicemail msg's.
+    The dialstring format for users to access their voicemail msg's is:
+    ${useraccountcode}-vmaccess .
+    Note: The system will ask the user for their PIN number which is quite normal for
+    obvious security reasons
+    -->
+    <extension name="Voicemail_Access_For_User">
+      <condition field="destination_number" expression="^(.*)-vmaccess$">
+        <action application="answer" />
+        <action application="export" data="userbox=$1" />
+        <action application="voicemail" data="check hosted $${domain} ${userbox}" />
+      </condition>
+    </extension>
+    
+    <!--The extension where users dial in to a remote voicemail access from a DID-->
+    <extension name="Voicemail_Access_from_DID">
+      <condition field="destination_number" expression="^vmain$">
+        <action application="answer" />
+        <action application="voicemail" data="check hosted $${domain}" />
+      </condition>
+    </extension>
+    
+    <!--The extension where all systems will redirect the calls to voicemail.
+    The dialstring format for the system to redirect calls is is:
+    ${useraccountcode}-voicemail -->
+    <extension name="Voicemail_Answering">
+      <condition field="destination_number" expression="^(.*)-voicemail$">
+        <action application="answer" />
+        <action application="set" data="skip_instructions=true" />
+        <action application="voicemail" data="hosted $${domain} $1" />
+      </condition>
+    </extension>
+  </context>
+
+</include>

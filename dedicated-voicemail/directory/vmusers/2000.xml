@@ -1,0 +1,15 @@
+<include>
+  <user id="2000">
+    <params>
+      <param name="password" value="$${default_password}"/>
+      <param name="vm-password" value="2000"/>
+    </params>
+    <variables>
+      <variable name="accountcode" value="2000"/>
+      <variable name="effective_caller_id_name" value="Extension 2000"/>
+      <variable name="effective_caller_id_number" value="2000"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id}"/>
+    </variables>
+  </user>
+</include>
